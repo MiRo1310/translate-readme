@@ -23501,7 +23501,7 @@ const translatedText = originalText.map(async (text) => {
 async function writeToFile() {
   await Promise.all(translatedText);
   writeFileSync(
-    join(`${saveDir}+${lang}+/`, `README.md`),
+    join(`${saveDir}${lang}/`, `README.md`),
     toMarkdown(readmeAST),
     "utf8"
   );
