@@ -23476,7 +23476,7 @@ const toMarkdown = (ast) => {
 };
 
 const mainDir = "./docs/de/";
-const saveDir ="./docs/en/";	
+const saveDir ="./docs/";	
 let README = readdirSync(mainDir).includes("readme.md")
   ? "readme.md"
   : "README.md";
@@ -23501,7 +23501,7 @@ const translatedText = originalText.map(async (text) => {
 async function writeToFile() {
   await Promise.all(translatedText);
   writeFileSync(
-    join(saveDir, `README.md`),
+    join(`${saveDir}+${lang}+/`, `README.md`),
     toMarkdown(readmeAST),
     "utf8"
   );
